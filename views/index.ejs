@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance weather</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body >
+    <div class="app-main" >
+        <div class="location">
+            <form action="/" method="POST">
+                <input class="input-city" type="text" id="city" name="city" placeholder="Enter city name" autocomplete="off">
+            </form>
+        </div>
+
+        <div class="weather">
+
+            <% if(count==-1) {%>
+                <div class="intro">
+                    <h2>Welcome to Weather App</h2>
+                    <p>Built by Gaurav.</p> 
+                </div>
+            <% } %> 
+            <% if(count==0 && error!=null) {%>
+                <h2 class=error><%= error %> </h2>
+            <% } %> 
+            <% if(count==1)  {%> 
+                <div class="city-info">
+                    <h2 class="loc"><span class="material-icons">&#xe55f;</span> <%= city  %> </h2>
+                    <p class="date"><%= today %></p>
+                </div>
+                <h1><%=temp%>&deg; C</h1>
+                <p class="min-max"><%=min%>&deg; C(MIN)/ <%=max%>&deg;C(MAX)</p>
+                <h2 class="weather-type"><%=desc%></h2>
+                <!-- <span class="material-icons weather-icon">&#xe2bd;</span> -->
+                <img src=<%= iconUrl%> alt="">
+            <% } %> 
+        </div>
+    </div>
+
+
+
+</body>
+</html>
